@@ -7,3 +7,8 @@ export const userLogins = async ({ body }) => {
   const logins = await UserLogsService.logins(id, date);
   return [status.OK, logins];
 };
+
+export const activeUsers = async () => {
+  const Users = await UserLogsService.activeUsers();
+  return [status.OK, Users];
+};
