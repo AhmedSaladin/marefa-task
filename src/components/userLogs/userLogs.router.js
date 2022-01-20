@@ -6,7 +6,7 @@ import { userLogins, activeUsers } from "./userLogs.controller.js";
 import { BodySchema } from "./user.validation.schema.js";
 const router = Router();
 
-router.get(
+router.post(
   "/user-logins",
   auth,
   validation(BodySchema),

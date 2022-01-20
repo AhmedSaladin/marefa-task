@@ -7,7 +7,6 @@ import ApiError from "../utility/error.js";
  */
 export default (schema) => (req, res, next) => {
   const { value, error } = schema.validate(req.body);
-  console.log(value);
   if (error) {
     const errorMessage = error.details
       .map((details) => details.message)

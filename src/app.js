@@ -9,6 +9,8 @@ import User from "./components/userLogs/userLogs.router.js";
 import Category from "./components/category/category.router.js";
 import Tag from "./components/tag/tag.router.js";
 import { json } from "express";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "./docs/swagger.js";
 
 export default (app) => {
   app.use(successHandler);
@@ -20,6 +22,7 @@ export default (app) => {
   app.use(User);
   app.use(Tag);
   app.use(Category);
+  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   app.use("*", NotFound);
   app.use(ErrorHandler);
 };
